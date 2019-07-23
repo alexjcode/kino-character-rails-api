@@ -1,7 +1,5 @@
 ## Project Idea
 
-What is your project idea?  How did you come up with it? Why? Who would use it?
-
 ```md
 Kino Character. Users will use it to search, add and favorite many different movie characters
 ```
