@@ -1,5 +1,7 @@
-class CharactersController < ApplicationController
-  before_action :set_character, only: [:show, :update, :destroy]
+# frozen_string_literal: true
+
+class CharactersController < OpenReadController
+  before_action :set_character, only: %i[show update destroy]
 
   # GET /characters
   def index
@@ -15,7 +17,7 @@ class CharactersController < ApplicationController
 
   # POST /characters
   def create
-    @character = Character.new(character_params)
+    @character = current_user.characters.build(character_params)
 
     if @character.save
       render json: @character, status: :created, location: @character
@@ -39,13 +41,16 @@ class CharactersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_character
-      @character = Character.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def character_params
-      params.require(:character).permit(:last_name, :first_name, :born_on, :location, :likes, :movie, :img)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_character
+    # @character = current_user.characters.find(params[:id])
+    @character = Character.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def character_params
+    params.require(:character).permit(:last_name, :first_name, :born_on,
+                                      :location, :likes, :movie, :img)
+  end
 end
