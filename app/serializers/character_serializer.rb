@@ -1,11 +1,15 @@
 class CharacterSerializer < ActiveModel::Serializer
-  attributes :id, :last_name, :first_name, :born_on,
-             :location, :likes, :movie, :img
-             # , :editable
+  attributes :id, :name, :movie, :born_on, :location, :likes, :img
 
-# def editable
-#   scope == object.user
-# end
+  def name
+    object.first_name.capitalize + ' ' + object.last_name.capitalize
+  end
+
+  # :editable
+
+  # def editable
+  #   scope == object.user
+  # end
 
   belongs_to :user
 end
