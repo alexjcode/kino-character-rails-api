@@ -4,9 +4,11 @@ Users will be able to view and populate a list of their favorite movie / tv / ga
 
 #### Front end
 https://github.com/falseinfinity/kino-character
+
 https://falseinfinity.github.io/kino-character
 #### API
 https://github.com/falseinfinity/kino-character-rails-api
+
 https://kino-character-rails-api.herokuapp.com
 
 ## User Stories
