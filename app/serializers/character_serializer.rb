@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CharacterSerializer < ActiveModel::Serializer
   attributes :id, :name, :movie, :born_on, :location, :likes, :img
 
