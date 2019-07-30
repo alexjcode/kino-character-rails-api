@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CharactersController < OpenReadController
-  before_action :set_character, only: %i[show update destroy]
+  before_action :set_character, only: %i[update destroy]
 
   # GET /characters
   def index
@@ -12,6 +12,7 @@ class CharactersController < OpenReadController
 
   # GET /characters/1
   def show
+    @character = Character.find(params[:id])
     render json: @character
   end
 
@@ -44,8 +45,7 @@ class CharactersController < OpenReadController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_character
-    # @character = current_user.characters.find(params[:id])
-    @character = Character.find(params[:id])
+    @character = current_user.characters.find(params[:id])
   end
 
   # Only allow a trusted parameter "white list" through.
