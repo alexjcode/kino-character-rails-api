@@ -5,14 +5,15 @@ class CharactersController < OpenReadController
 
   # GET /characters
   def index
-    @characters = Character.all
-
+    # @characters = Character.all
+    @characters = current_user.characters.all
     render json: @characters
   end
 
   # GET /characters/1
   def show
-    @character = Character.find(params[:id])
+    # @character = Character.find(params[:id])
+    @character = current_user.characters.find(params[:id])
     render json: @character
   end
 
