@@ -62,3 +62,4 @@ characters(last_name:string, first_name:string, location:string, born_on:date, m
 - Add modals for the edit button, and use a modal for add character
 - Figure out how to display all characters on the database,
   but only show edit/delete buttons on the user's own characters
+- Resolve dependency issues
